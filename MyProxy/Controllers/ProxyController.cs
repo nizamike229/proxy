@@ -27,11 +27,11 @@ namespace MyProxy.Controllers
             {
                 Console.WriteLine($"[INFO] Request started for URL: {url}");
                 
-                var proxyAddress = "https://204.157.185.4:999";
+                var proxyAddress = "http://191.102.123.196:999";
                 var handler = new HttpClientHandler
                 {
                     Proxy = new WebProxy(proxyAddress),
-                    UseProxy = true
+                    UseProxy = false
                 };
                 
                 using var proxyClient = new HttpClient(handler)
