@@ -7,6 +7,10 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000"; // Порт по умолчанию 5000
+
+app.Urls.Add($"http://0.0.0.0:{port}");
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -14,9 +18,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
